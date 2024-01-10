@@ -1,0 +1,12 @@
+<?php
+if(isset($_REQUEST['delete'])){
+	$sql = "DELETE FROM TblTourPackages WHERE id= :id";
+	$result = $conn->prepare($sql);
+	$result->bindparm(':id',PDO::PARM_INT);
+	$id = $_REQUEST['id'];
+	$result->execute();
+	echo $result->rowcount() . "Row Deleted <br>";
+	unset($result);
+
+}
+?>	
